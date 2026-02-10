@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/DiaryApp/.vs/DiaryApp
+/DiaryApp/DiaryApp/bin/Debug/net9.0
+/DiaryApp/DiaryApp/obj
