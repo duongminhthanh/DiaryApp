@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DiaryApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260211092617_AddDiaryEntryTable")]
-    partial class AddDiaryEntryTable
+    [Migration("20260212041649_InitialAndSeed")]
+    partial class InitialAndSeed
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,6 +47,29 @@ namespace DiaryApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("DiaryEntries");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Content = "Went hiking with Joe!",
+                            Created = new DateTime(2026, 2, 12, 11, 16, 47, 252, DateTimeKind.Local).AddTicks(2783),
+                            Title = "Went Hiking"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Content = "Went shopping with Joe!",
+                            Created = new DateTime(2026, 2, 12, 11, 16, 47, 252, DateTimeKind.Local).AddTicks(3128),
+                            Title = "Went Shopping"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Content = "Went diving with Joe!",
+                            Created = new DateTime(2026, 2, 12, 11, 16, 47, 252, DateTimeKind.Local).AddTicks(3131),
+                            Title = "Went Diving"
+                        });
                 });
 #pragma warning restore 612, 618
         }
