@@ -25,9 +25,19 @@ namespace DiaryApp.Controllers
         [HttpPost]
         public IActionResult Create(DiaryEntry obj)
         {
-            _db.DiaryEntries.Add(obj);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
+            // Validation
+            if (obj != null && obj.Title.Length < 3)
+            {
+                ModelState.AddModelError("Title", "The Title must be at least 3 characters long.");
+            }
+            if (ModelState.IsValid)
+            {
+                _db.DiaryEntries.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(obj);
         }
     }
 }
